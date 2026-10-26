@@ -38,4 +38,5 @@ function draw(){n.textContent=view.length+' words';b.innerHTML=view.slice(0,lim)
 document.querySelectorAll('th[data-c]').forEach(t=>t.onclick=()=>{const c=+t.dataset.c;dir=c===sort?-dir:(c===5?-1:1);sort=c;
  document.querySelectorAll('th').forEach(h=>{h.classList.toggle('on',h===t);h.textContent=h.textContent.replace(/ [▾▴]$/,'');});t.textContent+=dir<0?' ▾':' ▴';filt();});
 let tm;q.oninput=()=>{clearTimeout(tm);tm=setTimeout(filt,150);};fp.onchange=fb.onchange=filt;more.onclick=()=>{lim+=400;draw();};filt();
+const pin=()=>{const h=document.querySelector('header').offsetHeight;document.querySelectorAll('th').forEach(t=>t.style.top=h+'px');};pin();addEventListener('resize',pin);
 </script></body></html>
